@@ -17,6 +17,8 @@ Install dependencies:
 pip install -r requirements.txt
 
 Run tests:
-* First, start an instance of sandbox (requires Docker): ./sandbox up nightly
+* First, start an instance of sandbox (requires Docker):
+  ./sandbox up
 * pytest
-* When finished, the sandbox can be stopped with ./sandbox down
+* When finished, the sandbox can be stopped with
+  ./sandbox down
