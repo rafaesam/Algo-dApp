@@ -7,35 +7,35 @@ algod_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 algod_client = algod.AlgodClient(algod_token, algod_address) 
 
 # CREATE ASSET
-creator = account.generate_account()
+Rafaa = account.generate_account()
 
 # Get network params for transactions before every transaction.
 params = algod_client.suggested_params()
 
 mnemonic_pharase = "galaxy fantasy exhibit rookie dust right amazing dream danger stumble charge bean almost eyebrow whip diet service elbow cake wage drift cinnamon wet abandon cargo"
 
-creator = {
+Rafaa = {
     "pk": "VDMHB6FOFS24JRWKATOQJDX7B44KN43E2FPM66N73JK3XHDAJADVYX2CAM",
     "sk": mnemonic.to_private_key(mnemonic_pharase) #sk = 'secret key'
 }
 
 # Asset Creation transaction
 txn = AssetConfigTxn(
-    sender=creator['pk'],
+    sender=Rafaa['pk'],
     sp=params,
     total=10,
     default_frozen=False,
     unit_name="10x",
     asset_name="10 Academy",
-    manager=creator['pk'],
-    reserve=creator['pk'],
-    freeze=creator['pk'], #put someone on the white or blacklist
-    clawback=creator['pk'], 
+    manager=Rafaa['pk'],
+    reserve=Rafaa['pk'],
+    freeze=Rafaa['pk'], #put someone on the white or blacklist
+    clawback=Rafaa['pk'], 
     url="https://10academy.org", 
     decimals=0)
 
 # Sign with secret key of creator
-stxn = txn.sign(creator['sk'])
+stxn = txn.sign(Rafaa['sk'])
 
 # Send the transaction to the network and retrieve the txid.
 txid = algod_client.send_transaction(stxn)
